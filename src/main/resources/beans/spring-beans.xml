@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="usuarioDao" class="br.com.estudo.spring.dao.UsuarioDao">
+		<constructor-arg name="dataSource" ref="c3p0DataSource"/>
+	</bean>
+	
+	<bean id="clienteDao" class="br.com.estudo.spring.dao.ClienteDao">
+		<constructor-arg name="dataSource" ref="c3p0DataSource"/>
+	</bean>
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost/projeto_admin"/>
+		<property name="username" value="root"/>	
+	</bean>
+	
+	<bean id="c3p0DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
+		<property name="jdbcUrl" value="jdbc:mysql://localhost/projeto_admin"/>
+		<property name="user" value="root"/>
+		<property name="maxPoolSize" value="20"/>
+		<property name="minPoolSize" value="2"/>
+	</bean>
+</beans>
