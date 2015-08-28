@@ -40,7 +40,7 @@ public class TestController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println(usuarioDao);
+		System.out.println(usuarioDao.buscarTodos().size());
 		req.getRequestDispatcher("WEB-INF/index.jsp").forward(req, resp);
 	}
 	
