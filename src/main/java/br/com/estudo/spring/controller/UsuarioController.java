@@ -47,6 +47,11 @@ import br.com.estudo.spring.model.Usuario;
 		@Override
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 				throws ServletException, IOException {
+			
+			Usuario attribute = (Usuario)getServletContext().getAttribute("teste"); // Recuperando objeto instanciado no Listener
+			
+			System.out.println("Objeto vindo do listener: " + attribute.getNome());
+			
 			resp.setContentType("text/html");
 			String acao = req.getParameter("acao");
 			if ("excluir".equalsIgnoreCase(acao)) {
